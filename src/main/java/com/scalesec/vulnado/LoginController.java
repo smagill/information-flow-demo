@@ -22,7 +22,7 @@ public class LoginController {
 
         input = validateLoginRequest(input);
 
-        User user = "test_user";
+        User user = User.fetch(input.username);
         if (input.password.equals(user.password)) {
             return new LoginResponse(user.token("dd"));
         } else {
